@@ -5,7 +5,11 @@ from utility import cosine_similarity, load_image, cv2
 
 """
 ABOUT THIS SCRIPT:
-This Script compares a query face against a group of faces and returns the best match. i.e. 1 → N...
+This Script compares a query face against a group of faces and returns the best match. i.e. 1 → N.
+
+i.e. 1 face (query) is compared against 1 image with multiple faces (group). The script identifies the best matching face in the group image and extracts it.
+
+It uses the Greedy Matching approach, which means it looks for the best match for each query face independently. This is simpler and faster but can lead to suboptimal results if there are multiple similar faces in the group image.
 """
 
 # configuration path 
