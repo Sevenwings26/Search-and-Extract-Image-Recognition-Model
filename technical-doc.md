@@ -42,13 +42,15 @@ $$Similarity = \frac{\sum_{i=1}^{n} A_i B_i}{\sqrt{\sum_{i=1}^{n} A_i^2} \sqrt{\
 
 ## 3. Technical Constraints & Decisions
 
-### Why NumPy over PyTorch?
-NumPy was chosen for the comparison layer because:
+### Why NumPy over Deep Learning Frameworks?
+During the inference phase, the bottleneck is the model execution (handled by ONNX), not the vector math. NumPy was chosen for the comparison layer because:
 1.  **Low Latency:** Zero overhead compared to initializing heavy deep learning sessions.
 2.  **Lightweight:** The total environment footprint is reduced by ~90% compared to a PyTorch installation.
+3.  **Memory Footprint:** Keeps the application lightweight (~15MB vs ~2GB for PyTorch).
+4.  **Portability:** Native support for the Python scientific stack.
 
 ### CPU vs. GPU Optimization
-By using `ctx_id=-1` and `onnxruntime`, the system utilizes **AVX2/FMA instructions**. While slower than a GPU, it ensures the tool is highly portable across standard office hardware and cloud-based web servers.
+By using `ctx_id=-1` and `onnxruntime`, the system utilizes **AVX2/FMA instructions**. While slower than a GPU(100ms vs 1500ms per image), it ensures the tool is highly portable across standard office hardware and cloud-based web servers.
 
 ---
 
