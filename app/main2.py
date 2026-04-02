@@ -2,7 +2,7 @@ import os
 import cv2
 import numpy as np
 from insightface.app import FaceAnalysis
-from .utility import load_image
+from utility import load_image
 
 
 """
@@ -60,7 +60,7 @@ def search_and_extract_multiple(group_img_path, query_img_path):
 
     # Normalize group embeddings once
     group_embeddings = [
-        (face, normalize(face.embedding)) for face in group_faces
+        (idx, face, normalize(face.embedding)) for idx, face in enumerate(group_faces)
     ]
 
     used_faces = set()
@@ -83,6 +83,7 @@ def search_and_extract_multiple(group_img_path, query_img_path):
             if sim > best_score:
                 best_score = sim
                 best_match = face
+                best_idx = idx
 
         print(f"[Query {i}] Best similarity: {best_score:.4f}")
 
@@ -111,3 +112,17 @@ def search_and_extract_multiple(group_img_path, query_img_path):
         })
 
     return results
+
+
+# run Program --
+if __name__ == "__main__":
+    group_image = r"C:\Users\wings\sevenwings_inc\identity_classifier\test\group1.jpg" 
+    query_image = r"C:\Users\wings\sevenwings_inc\identity_classifier\test\person1.jpg"
+
+    try:
+        results = search_and_extract_multiple(group_image, query_image)
+        print("Results:", results)
+    except Exception as e:
+        print(f"Error: {str(e)}")
+
+        

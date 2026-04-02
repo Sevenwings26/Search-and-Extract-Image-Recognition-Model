@@ -1,7 +1,7 @@
-# import os
-import cv2
+import os
+# import cv2
 from insightface.app import FaceAnalysis
-from .utility import cosine_similarity, load_image
+from utility import cosine_similarity, load_image, cv2
 
 """
 ABOUT THIS SCRIPT:
@@ -10,7 +10,8 @@ This Script compares a query face against a group of faces and returns the best 
 
 # configuration path 
 SIMILARITY_THRESHOLD = 0.5
-OUTPUT_IMG = "output.jpg"
+# OUTPUT_IMG = r"C:\Users\wings\sevenwings_inc\identity_classifier\test\output.jpg"
+OUTPUT_IMG = os.path.join(os.getcwd(), "output.jpg")
 
 # Initialize model (for CPU)
 # app = FaceAnalysis(name="buffalo_l", providers=["CUDAExecutionProvider"])
@@ -73,11 +74,11 @@ def search_and_extract(group_img_path, query_img_path):
 
 # Run Program -- 
 if __name__ == "__main__":
-    group_image = "path/to/group.jpg" 
-    query_image = "path/to/person.jpg"
+    group_image = r"C:\Users\wings\sevenwings_inc\identity_classifier\test\group1.jpg" 
+    query_image = r"C:\Users\wings\sevenwings_inc\identity_classifier\test\person1.jpg"
 
     try:
-        result = search_and_extract(group_image, query_image, output_img_path=OUTPUT_IMG)
+        result = search_and_extract(group_image, query_image)
     except Exception as e:
         print(f"Error: {str(e)}")
 
