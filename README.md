@@ -15,6 +15,7 @@ A high-performance computer vision tool built to identify, match, and isolate sp
 * **`opencv-python`**: Handles image I/O (loading/saving) and the physical "cropping" of the image matrix.
 * **`numpy`**: Handles the high-speed linear algebra (Dot Products and Norms) for identity similarity.
 * **`onnxruntime`**: The cross-platform inference engine that executes the model's logic on your CPU(GPU replaceable).
+* **`scipy`**: Uses the Hungarian Algorithm for optimal matching to reduce false positives and improving assignment of query faces to group faces.
 
 ---
 
@@ -38,13 +39,13 @@ A high-performance computer vision tool built to identify, match, and isolate sp
 
 2. **Dependencies:**
    ```bash
-   pip install opencv-python numpy insightface onnxruntime
+   pip install opencv-python numpy insightface onnxruntime scipy
    or
    pip install -r requirements.txt
    ```
 
 3. **Execution:**
-   Place your images in the project root and run:
+   Place your images in the filepath
    ```bash
    python main2.py
    ```
@@ -56,6 +57,7 @@ A high-performance computer vision tool built to identify, match, and isolate sp
 * **Cosine Similarity via Dot Product:** By pre-normalizing vectors in `main2.py`, we calculate identity matches using simple dot products, significantly reducing CPU overhead during batch processing.
 * **Spatial Clipping:** All extraction logic includes boundary-checking to ensure that crops do not exceed the original image dimensions, preventing "Index Out of Bounds" errors.
 * **Margin Expansion:** Bounding boxes are dynamically expanded by a configurable `MARGIN` (default 20%) to include more context (hair/forehead) in the final output.
+* **Hungarian Algorith**: For optimal matching to reduce false positives and improve cost calculation, and assignment of query faces to group faces.
 
 <!-- ---
 
