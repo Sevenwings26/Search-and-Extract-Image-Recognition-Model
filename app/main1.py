@@ -14,7 +14,7 @@ It uses the Greedy Matching approach, which means it looks for the best match fo
 
 # configuration path 
 SIMILARITY_THRESHOLD = 0.5
-# OUTPUT_IMG = r"C:\Users\wings\sevenwings_inc\identity_classifier\test\output.jpg"
+# OUTPUT_IMG = r"C:\Users\wings\sevenwings_inc\identity_classifier\images\output.jpg"
 OUTPUT_IMG = os.path.join(os.getcwd(), "output.jpg")
 
 # Initialize model (for CPU)
@@ -78,8 +78,8 @@ def search_and_extract(group_img_path, query_img_path):
 
 # Run Program -- 
 if __name__ == "__main__":
-    group_image = r"C:\Users\wings\sevenwings_inc\identity_classifier\test\group1.jpg" 
-    query_image = r"C:\Users\wings\sevenwings_inc\identity_classifier\test\person1.jpg"
+    group_image = r"C:\Users\wings\sevenwings_inc\identity_classifier\images\group1.jpg" 
+    query_image = r"C:\Users\wings\sevenwings_inc\identity_classifier\images\person1.jpg"
 
     try:
         result = search_and_extract(group_image, query_image)

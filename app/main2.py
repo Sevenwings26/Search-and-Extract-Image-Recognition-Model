@@ -136,8 +136,8 @@ def search_and_extract_multiple(group_img_path, query_img_path):
 
 # run Program --
 if __name__ == "__main__":
-    group_image = r"C:\Users\wings\sevenwings_inc\identity_classifier\test\group1.jpg" 
-    query_image = r"C:\Users\wings\sevenwings_inc\identity_classifier\test\person1.jpg"
+    group_image = r"C:\Users\wings\sevenwings_inc\identity_classifier\images\group1.jpg" 
+    query_image = r"C:\Users\wings\sevenwings_inc\identity_classifier\images\person1.jpg"
 
     try:
         results = search_and_extract_multiple(group_image, query_image)
