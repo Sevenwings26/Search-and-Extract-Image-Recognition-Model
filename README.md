@@ -1,6 +1,6 @@
-# Search and Extract Image Recognition Model
+# Search and Sort Image Recognition Model
 
-A high-performance computer vision tool built to identify, match, and isolate specific individuals from complex group environments (image).
+A high-performance computer vision tool built to identify, match, and sort specific individuals from complex group environments (images), then sort images containing a specific individual into a folder.
 
 ## Core Functions
 * **Multi-Identity Detection:** Locates all human faces within a scene using the `RetinaFace` algorithm.
